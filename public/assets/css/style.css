@@ -1,0 +1,47 @@
+#title {
+    text-align: center;
+    color: green;
+    padding: 200px;
+}
+
+#scrapeButton {
+    margin-top: 7px;
+}
+
+#noArticlesPanel {
+    font-size: 24px;
+    text-align: center;
+    color: blue;
+    background-color: white;
+}
+
+.articleHeading {
+    overflow: auto;
+    font-size: 24px;
+}
+
+.articleBody {
+    font-size: 18px;
+}
+
+.articleLink {
+    color: white;
+}
+
+#scrapeModalBody {
+    font-size: 32px;
+    text-align: center;
+}
+
+.articleNotesButton {
+    background: gray;
+}
+
+#notesTitle,
+.noteBody {
+    text-align: center;
+}
+
+.noteRecord {
+    overflow: auto;
+}

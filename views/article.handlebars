@@ -1,0 +1,81 @@
+{{!-- Navigation Bar --}}
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/saved">Saved Articles</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/saved">Saved Articles</a></li>
+        </ul>
+    </div>
+</nav>
+
+{{!-- Title --}}
+<div class="jumbotron" id="title">
+    <h1>Saved Articles</h1>
+    <h2>Your Saved Articles</h2>
+</div>
+
+{{!-- Articles --}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            {{#each articles}}
+            <div class="panel panel-primary">
+                <div class="panel-heading articleHeading">
+                    <a href={{this.link}} class="articleLink">{{this.title}}</a>
+                    <span class="pull-right">
+                  <button type="button" class="btn btn-success articleNotesButton" value={{this.id}}>ARTICLE NOTES</button>
+                        <button type="button" class="btn btn-danger deleteArticleButton" value={{this.id}}>DELETE FROM SAVED</button>
+                    </span>
+                </div>
+                <div class="panel-body articleBody">{{this.body}}</div>
+            </div>
+            {{/each}}
+            {{#unless articles}}
+            <div class="panel panel-default">
+                <div class="panel-heading" id="noArticlesPanel">
+                    Uh Oh. Looks like we don't have any saved articles.
+                </div>
+            </div>
+            {{/unless}}
+        </div>
+    </div>
+</div>
+
+{{!--Modals--}}
+<div class="modal fade" id="notesModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="notesTitle">Notes for Article: </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="panel panel-default">
+                    <div class="panel-body noteBody">No notes for this article yet.</div>
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" id="noteText" placeholder="New Note"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success saveNoteButton" data-article="" data-dismiss="modal">SAVE NOTE</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{!-- Scripts --}}
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
